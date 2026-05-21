@@ -91,7 +91,7 @@
 
     .hero {
       height: 90vh;
-      background: url('image_e819b0.png') center/cover no-repeat;
+      background: url('image_e819b0.png') center/cover no-repeat; /* 使用你真实的日出大图 */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -147,7 +147,7 @@
 
     .card-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 30px;
     }
 
@@ -293,6 +293,7 @@
 
   <div class="card-container">
     <div class="card">
+      <img src="image_55fdc5.jpg" alt="泰山煎饼">
       <div class="card-content">
         <h3>泰山煎饼</h3>
         <p>山东特色传统美食，口感香脆，深受游客喜爱。</p>
@@ -300,6 +301,7 @@
     </div>
 
     <div class="card">
+      <img src="image_5600ee.jpg" alt="肥城桃">
       <div class="card-content">
         <h3>肥城桃</h3>
         <p>肥城桃个大味甜，被誉为“中国桃王”。</p>
@@ -307,6 +309,7 @@
     </div>
 
     <div class="card">
+      <img src="image_5601c7.jpg" alt="泰安豆腐宴">
       <div class="card-content">
         <h3>泰安豆腐宴</h3>
         <p>采用传统工艺制作，具有浓厚地方特色。</p>
@@ -322,6 +325,7 @@
 
   <div class="card-container">
     <div class="card">
+      <img src="R.jpg" alt="封禅文化">
       <div class="card-content">
         <h3>封禅文化</h3>
         <p>历代帝王曾在泰山举行封禅大典，体现中华文明历史。</p>
@@ -329,6 +333,7 @@
     </div>
 
     <div class="card">
+      <img src="R (1).jpg" alt="岱庙">
       <div class="card-content">
         <h3>岱庙</h3>
         <p>岱庙是古代祭祀泰山神的重要场所，建筑庄严宏伟。</p>
@@ -336,6 +341,7 @@
     </div>
 
     <div class="card">
+      <img src="1812191504207769267.jpg" alt="石刻文化">
       <div class="card-content">
         <h3>石刻文化</h3>
         <p>泰山石刻众多，展现了深厚的历史文化底蕴。</p>
@@ -348,13 +354,10 @@
   <div class="title">
     <h2>旅游营销推广</h2>
   </div>
-
   <p>
     本网站以“宣传泰安文化、推广泰山旅游”为核心目标，通过展示泰山风景、美食文化和历史故事，吸引更多游客了解泰安、走进泰安。
   </p>
-
   <br>
-
   <p>
     网站设置了旅游攻略、特色景点与地方美食等栏目，能够帮助游客快速获取旅游信息。同时，通过搜索关键词优化，提高网站在搜索引擎中的曝光率。
   </p>
@@ -368,28 +371,26 @@
   const audio = document.getElementById('bgMusic');
   const musicBtn = document.getElementById('musicBtn');
 
-  // 点击按钮切换播放/暂停状态
+  // 点击控制播放与暂停
   musicBtn.addEventListener('click', () => {
     if (audio.paused) {
       audio.play().then(() => {
         musicBtn.classList.add('music-playing');
-      }).catch(err => {
-        console.log("播放被浏览器拦截：", err);
-      });
+      }).catch(err => console.log("播放被拦截：", err));
     } else {
       audio.pause();
       musicBtn.classList.remove('music-playing');
     }
   });
 
-  // 顺应现代浏览器规则：用户首次在页面任意地方点击时，尝试自动激活动画和播放
+  // 顺应浏览器规则：首次点击页面任意地方尝试激活背景音乐
   document.addEventListener('click', () => {
     if (audio.paused && !musicBtn.classList.contains('music-playing')) {
       audio.play().then(() => {
         musicBtn.classList.add('music-playing');
       }).catch(() => {});
     }
-  }, { once: true }); // 只触发一次
+  }, { once: true });
 </script>
 
 </body>
